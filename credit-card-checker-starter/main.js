@@ -74,36 +74,34 @@ console.log(findInvalidCards(batch));
 */
 
 //Task 3
-const invalidCardCompanies = (arr) => {
-    let list = findInvalidCards(arr);
+const idInvalidCardCompanies = (arr) => {
     let companies = [];
+    let list = [];
 
-    for(let i = 0; i < list.length; i++) {
-        let currCard = list[i];
-        switch(currCard[0]) {
-            case 3: 
-                companies.push(currCard);
+    companies.push(findInvalidCards(arr));
+    for(let i = 0; i < companies[0].length; i++) {
+        switch(arr[i][0]) {
+            case 3:
+                list.push('Amex (America Express)');
                 break;
             case 4:
-                companies.push(currCard);
+                list.push('Visa');
                 break;
             case 5:
-                companies.push(currCard);
+                list.push('Mastercard');
                 break;
             case 6:
-                companies.push(currCard);
+                list.push('Discover');
                 break;
             default:
                 console.log('Company not found');
                 break;
         }
     }
-    return companies;
+    return list;
 }
 
 
 //Test Task 3
-/*
-console.log(invalidCardCompanies([invalid1, invalid2, invalid3, invalid4, invalid5]));
-console.log(invalidCardCompanies(batch));
-*/
+console.log(idInvalidCardCompanies([invalid1, invalid2, invalid3, invalid4, invalid5]));
+console.log(idInvalidCardCompanies(batch));
